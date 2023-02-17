@@ -12,7 +12,7 @@ class AppView(QtWidgets.QWidget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.setWindowTitle('ChatGPT Client')
-        self.font_family = "Courier New; STSong; SimSun;"
+        self.font_family = "SimSun; STSong; "
         self.configuration = self.loadConfiguraton()
 
         self.resize(1200, 800)
