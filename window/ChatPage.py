@@ -44,7 +44,7 @@ class ChatPage(QtWidgets.QWidget):
     
     def prepareForPaint(self):
         self.room_title = self.config['chat_item'].string
-        self.font_ = QtGui.QFont("Courier New", 50, 500)
+        self.font_ = QtGui.QFont(self.font_family, 50, 500)
         fm = QtGui.QFontMetrics(self.font_)
         rect = fm.tightBoundingRect(self.room_title)
         self.font_rect = rect
@@ -76,10 +76,10 @@ class ChatPage(QtWidgets.QWidget):
         layout.addSpacerItem(QtWidgets.QSpacerItem(0, 0, hPolicy=QtWidgets.QSizePolicy.Policy.Expanding))
         
         self.sendLE = QtWidgets.QLineEdit(self.chatSpace)
-        self.sendLE.setFixedWidth(600)
+        self.sendLE.setFixedWidth(800)
         self.sendLE.setStyleSheet("color: white; background: rgb(55, 65, 81); padding: 5px")
         self.sendLE.setPlaceholderText("Send messages to AI")
-        self.sendLE.setFont(QtGui.QFont("Courier New", 20))
+        self.sendLE.setFont(QtGui.QFont(self.font_family, 20))
         self.sendLE.returnPressed.connect(self.sendBtnEvent)
         layout.addWidget(self.sendLE)
         
