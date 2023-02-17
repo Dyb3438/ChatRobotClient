@@ -78,7 +78,7 @@ class AppView(QtWidgets.QWidget):
             icon='./icon/home.png',
             string='Introduction',
             width=278,
-            height=50,
+            height=60,
             font_size=20,
             font_family=self.font_family
         )
@@ -89,7 +89,7 @@ class AppView(QtWidgets.QWidget):
             icon='./icon/add.png',
             string='New Chat',
             width=278,
-            height=50,
+            height=60,
             font_size=20,
             font_family=self.font_family
         )
@@ -104,7 +104,7 @@ class AppView(QtWidgets.QWidget):
             icon='./icon/add.png',
             string='New Chat',
             width=278,
-            height=50,
+            height=60,
             font_size=20,
             font_family=self.font_family
         )
@@ -121,7 +121,7 @@ class AppView(QtWidgets.QWidget):
             string='Chat %d' % self.chat_id,
             chat_id=self.chat_id,
             width=278,
-            height=50,
+            height=60,
             font_size=20,
             right_hidden=False,
             right_icon='./icon/delete.png',
