@@ -16,6 +16,7 @@ class TextBox(QtWidgets.QWidget):
                  border_radius=5,
                  background_color=(127, 127, 127), 
                  font_color=(243, 244, 246), 
+                 font_family="Courier New",
                  hover_color=(17, 24, 39),
                  available_hover_action=True,
                  font_size=16,
@@ -32,6 +33,7 @@ class TextBox(QtWidgets.QWidget):
         self.border_radius:int = border_radius
         self.background_color:tuple = background_color
         self.font_color:tuple = font_color
+        self.font_family:str = font_family
         
         self.hover_color:tuple = hover_color
         self.available_hover_action: bool = available_hover_action
@@ -64,7 +66,7 @@ class TextBox(QtWidgets.QWidget):
     def prepareForPainting(self):
         line_rects = []
 
-        font = QtGui.QFont("Courier New", self.font_size)
+        font = QtGui.QFont(self.font_family, self.font_size)
         fm = QtGui.QFontMetrics(font)
 
         # split string into words
@@ -100,7 +102,7 @@ class TextBox(QtWidgets.QWidget):
         if len(self.line_rects) > 1:
             box_width = self.maxWidth
         else:
-            r_w = rect[0].width()
+            r_w = self.line_rects[0].width()
 
             if r_w > self.maxWidth - 2 * self.padding:
                 r_w = self.maxWidth - 2 * self.padding

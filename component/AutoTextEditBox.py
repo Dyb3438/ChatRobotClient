@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import *
 
 class Editor(QTextEdit):
     doubleClicked = pyqtSignal(QTextEdit)
-    def __init__(self, font_size, font_color=(9, 17, 10), background_color=(89, 178, 105)):
+    def __init__(self, font_size, font_color=(9, 17, 10), font_family="Courier New", background_color=(89, 178, 105)):
         super().__init__()
 
         self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
@@ -16,7 +16,7 @@ class Editor(QTextEdit):
         self.width_ = self.width()
         self.height_ = self.height()
 
-        font = QFont("Courier New", self.font_size)
+        font = QFont(font_family, self.font_size)
         self.setReadOnly(True)
         self.setFont(font)
         self.setTextColor(QColor.fromRgb(*font_color))
@@ -25,7 +25,7 @@ class Editor(QTextEdit):
         
         self.textChanged.connect(self.autoResize)
         self.margins = self.contentsMargins()
-        
+
         self.viewport().setAttribute(Qt.WA_TranslucentBackground)
         self.setFrameStyle(QFrame.NoFrame)
 

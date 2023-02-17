@@ -15,6 +15,7 @@ class ChatItem(QtWidgets.QWidget):
                  width=230,
                  height=50,
                  font_size=16,
+                 font_family="Courier New",
                  right_icon=None,
                  right_hidden=True
                 ):
@@ -27,6 +28,7 @@ class ChatItem(QtWidgets.QWidget):
         self.width:int = width
         self.height:int = height
         self.font_size:int = font_size
+        self.font_family:str = font_family
         self.right_icon:str = right_icon
         self.right_hidden:bool = right_hidden
 
@@ -74,7 +76,7 @@ class ChatItem(QtWidgets.QWidget):
         else:
             self.text_width = (self.width - self.height) if self.width - self.height > 0 else 0
 
-        font = QtGui.QFont("Courier New", self.font_size, 500)
+        font = QtGui.QFont(self.font_family, self.font_size, 500)
         fm = QtGui.QFontMetrics(font)
         show_text = ""
         words = self.string

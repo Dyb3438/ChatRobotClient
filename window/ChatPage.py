@@ -6,7 +6,7 @@ from thread import SendMessage
 
 class ChatPage(QtWidgets.QWidget):
     
-    def __init__(self, config, proxy_sites):
+    def __init__(self, config, proxy_sites, font_family="Courier New"):
         super().__init__()
         self.setWindowTitle('ChatPage')
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -102,7 +102,7 @@ class ChatPage(QtWidgets.QWidget):
             icon = './icon/speak.png'
         else:
             icon = './icon/no_server.png'
-        chatPiece = ChatPiece.ChatPiece(icon, content, type)
+        chatPiece = ChatPiece.ChatPiece(icon, content, type, font_family=self.font_family)
         return chatPiece
     
     def sendBtnEvent(self):

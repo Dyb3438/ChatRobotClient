@@ -51,13 +51,13 @@ class IntroductionPage(QtWidgets.QWidget):
         contentBody = QtWidgets.QWidget()
         contentLayout = QtWidgets.QHBoxLayout()
 
-        list_width = 250
+        list_width = 320
         contentLayout.addWidget(self.createExampleList(list_width=list_width))
         contentLayout.addWidget(self.createCapList(list_width=list_width))
         contentLayout.addWidget(self.createLimitList(list_width=list_width))
 
-        contentLayout.setSpacing(0)
-        contentLayout.setContentsMargins(0, 0, 0, 0)
+        contentLayout.setSpacing(10)
+        contentLayout.setContentsMargins(10, 10, 10, 10)
         contentBody.setLayout(contentLayout)
         return contentBody
     

@@ -1,6 +1,6 @@
 from functools import partial
 import sys
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtCore import Qt
 
 from component import ScrollList, ChatItem
@@ -12,13 +12,14 @@ class AppView(QtWidgets.QWidget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.setWindowTitle('ChatGPT Client')
+        self.font_family = "Courier New; STSong; SimSun;"
         self.configuration = self.loadConfiguraton()
 
         self.resize(1200, 800)
         self.center()
         self.setMinimumHeight(500)
-        self.setFixedSize(self.width(), self.height())
-        self.setWindowFlags(QtCore.Qt.WindowType.WindowMinMaxButtonsHint)
+        # self.setFixedSize(self.width(), self.height())
+        # self.setWindowFlags(QtCore.Qt.WindowType.WindowMinMaxButtonsHint)
         
         self.body = self.createBody()
         self.setLayout(self.body)
@@ -30,8 +31,9 @@ class AppView(QtWidgets.QWidget):
     
     def center(self):
         screen = QtWidgets.QDesktopWidget().screenGeometry()
-        size = self.geometry()
-        self.move(int((screen.width() - size.width())/2), int((screen.height() - size.height())/2))
+        # size = self.geometry()
+        self.resize(screen.width(), screen.height())
+        # self.move(int((screen.width() - size.width())/2), int((screen.height() - size.height())/2))
         return
 
     def loadConfiguraton(self):
@@ -63,7 +65,7 @@ class AppView(QtWidgets.QWidget):
         leftBody.setStyleSheet('''
             background: rgb(32,33,35)
         ''')
-        leftBody.setFixedWidth(250)
+        leftBody.setFixedWidth(300)
         layout = QtWidgets.QVBoxLayout()
         layout.setSpacing(0)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -74,9 +76,10 @@ class AppView(QtWidgets.QWidget):
         self.home_item = ChatItem.ChatItem(
             icon='./icon/home.png',
             string='Introduction',
-            width=230,
+            width=280,
             height=50,
             font_size=20,
+            font_family=self.font_family
         )
         self.home_item.MouseLClick.connect(partial(self.active_chat, self.home_item))
         self.chatList.addWidget(self.home_item)
@@ -84,9 +87,10 @@ class AppView(QtWidgets.QWidget):
         self.add_item = ChatItem.ChatItem(
             icon='./icon/add.png',
             string='New Chat',
-            width=230,
+            width=280,
             height=50,
             font_size=20,
+            font_family=self.font_family
         )
         self.add_item.MouseLClick.connect(self.addNewChat)
         self.chatList.addWidget(self.add_item)
@@ -98,9 +102,10 @@ class AppView(QtWidgets.QWidget):
         self.add_item = ChatItem.ChatItem(
             icon='./icon/add.png',
             string='New Chat',
-            width=230,
+            width=280,
             height=50,
             font_size=20,
+            font_family=self.font_family
         )
         self.add_item.MouseLClick.connect(self.addNewChat)
         self.chatList.addWidget(self.add_item)
@@ -114,11 +119,12 @@ class AppView(QtWidgets.QWidget):
             icon='./icon/chat.png',
             string='Chat %d' % self.chat_id,
             chat_id=self.chat_id,
-            width=230,
+            width=280,
             height=50,
             font_size=20,
             right_hidden=False,
-            right_icon='./icon/delete.png'
+            right_icon='./icon/delete.png',
+            font_family=self.font_family
         )
         chat_item.MouseLClick.connect(partial(self.active_chat, chat_item))
         chat_item.RightIconLClick.connect(partial(self.rm_chat, chat_item))
@@ -168,12 +174,11 @@ class AppView(QtWidgets.QWidget):
         contentBody.setStyleSheet('''
                 background: rgb(52,53,65)
             ''')
-        contentBody.setMinimumWidth(800)
         contentBody.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         return contentBody
     
     def createChatPage(self, chat_config):
-        chatPage = ChatPage.ChatPage(chat_config, self.configuration['proxy_sites'])
+        chatPage = ChatPage.ChatPage(chat_config, self.configuration['proxy_sites'], self.font_family)
         self.rightContentBody.addWidget(chatPage)
         return chatPage
     

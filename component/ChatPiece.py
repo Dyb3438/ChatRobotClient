@@ -16,6 +16,7 @@ class ChatPiece(QtWidgets.QWidget):
                  type=1,
                  icon_size=30,
                  font_size=16,
+                 font_family="Courier New",
                 ):
         super().__init__()
 
@@ -24,6 +25,7 @@ class ChatPiece(QtWidgets.QWidget):
         self.type:int = type
         self.icon_size:int = icon_size
         self.font_size:int = font_size
+        self.font_family:str = font_family
 
         self.setAttribute(Qt.WA_TranslucentBackground)
         bodyLayout = self.createBody()
@@ -81,7 +83,7 @@ class ChatPiece(QtWidgets.QWidget):
         else:
             font_color=(171, 171, 171)
             background_color=(44, 44, 44)
-        text = Editor(self.font_size, font_color, background_color)
+        text = Editor(self.font_size, font_color, self.font_family, background_color)
         text.setText(self.string)
         return text
     
