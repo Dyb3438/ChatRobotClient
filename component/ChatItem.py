@@ -38,7 +38,7 @@ class ChatItem(QtWidgets.QWidget):
 
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.prepareForPainting()
-        self.setFixedSize(self.width, self.height)
+        self.setFixedSize(self.width + 2, self.height + 2)
         bodyLayout = self.createBody()
         self.setLayout(bodyLayout)
 
@@ -137,7 +137,7 @@ class ChatItem(QtWidgets.QWidget):
             p.setBrush(QtGui.QColor.fromRgb(51, 51, 51))
             self.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
-        p.drawRoundedRect(0, 0, self.width, self.height, 5, 5)
+        p.drawRoundedRect(0, 0, self.width + 2, self.height + 2, 5, 5)
 
         if not self.right_hidden:
             if self.above_right_icon:

@@ -72,11 +72,12 @@ class AppView(QtWidgets.QWidget):
         leftBody.setLayout(layout)
 
         self.chatList = ScrollList.ScrollList(addBorder=False)
+        self.chatList.widget().layout().setAlignment(Qt.AlignmentFlag.AlignCenter)
         
         self.home_item = ChatItem.ChatItem(
             icon='./icon/home.png',
             string='Introduction',
-            width=280,
+            width=278,
             height=50,
             font_size=20,
             font_family=self.font_family
@@ -87,7 +88,7 @@ class AppView(QtWidgets.QWidget):
         self.add_item = ChatItem.ChatItem(
             icon='./icon/add.png',
             string='New Chat',
-            width=280,
+            width=278,
             height=50,
             font_size=20,
             font_family=self.font_family
@@ -102,7 +103,7 @@ class AppView(QtWidgets.QWidget):
         self.add_item = ChatItem.ChatItem(
             icon='./icon/add.png',
             string='New Chat',
-            width=280,
+            width=278,
             height=50,
             font_size=20,
             font_family=self.font_family
@@ -119,7 +120,7 @@ class AppView(QtWidgets.QWidget):
             icon='./icon/chat.png',
             string='Chat %d' % self.chat_id,
             chat_id=self.chat_id,
-            width=280,
+            width=278,
             height=50,
             font_size=20,
             right_hidden=False,

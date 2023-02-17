@@ -26,7 +26,7 @@ class ScrollList(QtWidgets.QScrollArea):
     
     def createLayout(self):
         hostListVerticalLayout = QtWidgets.QVBoxLayout()
-        hostListVerticalLayout.setSpacing(5)
+        hostListVerticalLayout.setSpacing(10)
         hostListVerticalLayout.setContentsMargins(10, 10, 10, 10)
         hostListVerticalLayout.setAlignment(Qt.AlignmentFlag.AlignLeft)
         hostListVerticalLayout.addSpacerItem(QtWidgets.QSpacerItem(0, 0, vPolicy=QtWidgets.QSizePolicy.Policy.Expanding))

@@ -89,7 +89,6 @@ class ChatPage(QtWidgets.QWidget):
 
         layout.addSpacerItem(QtWidgets.QSpacerItem(0, 0, hPolicy=QtWidgets.QSizePolicy.Policy.Expanding))
         
-        layout.setSpacing(10)
         layout.setContentsMargins(0, 0, 0, 0)
 
         box.setAttribute(Qt.WA_TranslucentBackground)
@@ -115,7 +114,6 @@ class ChatPage(QtWidgets.QWidget):
         self.sendRequest(question)
         chatPiece = self.createChatPiece(question)
         self.chatSpace.addWidget(chatPiece)
-        self.chatSpace.addSpacing(10)
         return
     
     def sendRequest(self, question):
@@ -142,7 +140,6 @@ class ChatPage(QtWidgets.QWidget):
             chatPiece = self.createChatPiece(answer, type=0)
             self.config['QAs'].append(answer)
         self.chatSpace.addWidget(chatPiece)
-        self.chatSpace.addSpacing(10)
 
         self.sendLE.setEnabled(True)
         self.sendLE.setFocus()
