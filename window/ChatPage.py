@@ -66,6 +66,7 @@ class ChatPage(QtWidgets.QWidget):
     
     def createChatSpace(self):
         chatSpace = ScrollList.ScrollList(addBorder=False)
+        chatSpace.widget().layout().setSpacing(15)
 
         return chatSpace
     
@@ -81,7 +82,7 @@ class ChatPage(QtWidgets.QWidget):
         self.sendLE.setStyleSheet("color: white; background: rgb(55, 65, 81); padding: 5px;")
         self.sendLE.setAttribute(Qt.WidgetAttribute.WA_MacShowFocusRect, 0)
         self.sendLE.setPlaceholderText("Send messages to AI")
-        self.sendLE.setFont(QtGui.QFont(self.font_family, 20))
+        self.sendLE.setFont(QtGui.QFont(self.font_family, 16))
         self.sendLE.returnPressed.connect(self.sendBtnEvent)
         layout.addWidget(self.sendLE)
         
@@ -104,7 +105,7 @@ class ChatPage(QtWidgets.QWidget):
             icon = './icon/speak.png'
         else:
             icon = './icon/no_server.png'
-        chatPiece = ChatPiece.ChatPiece(icon, content, type, font_family=self.font_family)
+        chatPiece = ChatPiece.ChatPiece(icon, content, type, font_family=self.font_family, icon_size=40, font_size=20)
         return chatPiece
     
     def sendBtnEvent(self):

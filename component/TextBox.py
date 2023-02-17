@@ -140,7 +140,7 @@ class TextBox(QtWidgets.QWidget):
         p.setPen(QtGui.QColor.fromRgb(*self.font_color))
         p.setFont(self.font_)
         for idx, (rect, line) in enumerate(zip(self.line_rects, self.lines)):
-            line_start_y = self.padding + (idx + 1) * self.max_line_height * 1.5 - self.max_line_height * 0.7
+            line_start_y = self.padding + (idx + 1) * self.max_line_height * 1.5 - self.max_line_height * 0.6
 
             if self.alignment == 'left':
                 line_start_x = self.padding - rect.x()

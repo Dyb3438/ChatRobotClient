@@ -21,7 +21,7 @@ class Editor(QTextEdit):
         self.setFont(font)
         self.setTextColor(QColor.fromRgb(*font_color))
         self.setContentsMargins(0, 0, 0, 0)
-        self.document().setDocumentMargin(8)
+        self.document().setDocumentMargin(10)
         
         self.textChanged.connect(self.autoResize)
         self.margins = self.contentsMargins()

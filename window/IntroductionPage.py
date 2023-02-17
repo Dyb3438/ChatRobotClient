@@ -84,19 +84,19 @@ class IntroductionPage(QtWidgets.QWidget):
         exampleLayout.addWidget(exampleICON_widget)
 
         # spacing
-        exampleLayout.addSpacing(10)
+        exampleLayout.addSpacing(15)
 
         # Head
         exampleHead = QtWidgets.QLabel("Examples")
         exampleHead.setStyleSheet('''
             color:white;
-            font-size: 20px;
+            font-size: 24px;
         ''')
         exampleHead.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         exampleLayout.addWidget(exampleHead)
 
         # spacing
-        exampleLayout.addSpacing(10)
+        exampleLayout.addSpacing(15)
 
         # patches
         example_patch_1 = TextBox.TextBox(
@@ -104,13 +104,13 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             hover_color=(17, 24, 39),
             available_hover_action=True,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
         example_patch_1.MouseLClick.connect(partial(self.startChat, 'Explain quantum computing in simple terms'))
@@ -120,13 +120,13 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             hover_color=(17, 24, 39),
             available_hover_action=True,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
         example_patch_2.MouseLClick.connect(partial(self.startChat, 'Got any creative ideas for a 10 year old’s birthday?'))
@@ -136,13 +136,13 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             hover_color=(17, 24, 39),
             available_hover_action=True,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
         example_patch_3.MouseLClick.connect(partial(self.startChat, 'How do I make an HTTP request in Javascript?'))
@@ -186,19 +186,19 @@ class IntroductionPage(QtWidgets.QWidget):
         capLayout.addWidget(capICON_widget)
 
         # spacing
-        capLayout.addSpacing(10)
+        capLayout.addSpacing(15)
 
         # Head
         capHead = QtWidgets.QLabel("Capabilities")
         capHead.setStyleSheet('''
             color:white;
-            font-size: 20px;
+            font-size: 24px;
         ''')
         capHead.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         capLayout.addWidget(capHead)
 
         # spacing
-        capLayout.addSpacing(10)
+        capLayout.addSpacing(15)
 
         # patches
         cap_patch_1 = TextBox.TextBox(
@@ -206,12 +206,12 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             available_hover_action=False,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
         cap_patch_2 = TextBox.TextBox(
@@ -219,12 +219,12 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             available_hover_action=False,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
         cap_patch_3 = TextBox.TextBox(
@@ -232,12 +232,12 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             available_hover_action=False,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
 
@@ -277,19 +277,19 @@ class IntroductionPage(QtWidgets.QWidget):
         limitLayout.addWidget(limitICON_widget)
 
         # spacing
-        limitLayout.addSpacing(10)
+        limitLayout.addSpacing(15)
 
         # Head
         limitHead = QtWidgets.QLabel("Limitations")
         limitHead.setStyleSheet('''
             color:white;
-            font-size: 20px;
+            font-size: 24px;
         ''')
         limitHead.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         limitLayout.addWidget(limitHead)
 
         # spacing
-        limitLayout.addSpacing(10)
+        limitLayout.addSpacing(15)
 
         # patches
         limit_patch_1 = TextBox.TextBox(
@@ -297,12 +297,12 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             available_hover_action=False,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
         limit_patch_2 = TextBox.TextBox(
@@ -310,12 +310,12 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             available_hover_action=False,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
         limit_patch_3 = TextBox.TextBox(
@@ -323,12 +323,12 @@ class IntroductionPage(QtWidgets.QWidget):
             minWidth=16,
             minHeight=16,
             maxWidth=list_width,
-            padding=8,
-            border_radius=8,
+            padding=10,
+            border_radius=10,
             background_color=(127, 127, 127),
             font_color=(243, 244, 246),
             available_hover_action=False,
-            font_size=16,
+            font_size=20,
             alignment="center"
         )
 
