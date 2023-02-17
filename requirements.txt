@@ -1,0 +1,4 @@
+PyQt5
+transformers
+json
+requests
