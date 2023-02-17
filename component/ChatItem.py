@@ -67,12 +67,13 @@ class ChatItem(QtWidgets.QWidget):
         self.update()
 
     def prepareForPainting(self):
-        self.right_icon_width = int(0.8 * (self.height - 10))
-        self.right_icon_rect = QRect(self.width - 0.8 * self.height + 3, 0.1 * self.height + 4, 0.8 * self.height - 8, 0.8 * self.height - 8)
+        self.right_icon_width = int(0.8 * (self.height - 20))
 
-        self.show_right_icon = (not self.right_hidden) and self.width >= self.height + 0.8 * self.height - 2
+        self.right_icon_rect = QRect(self.width - self.right_icon_width - 20, (self.height - self.right_icon_width) / 2, self.right_icon_width, self.right_icon_width)
+
+        self.show_right_icon = (not self.right_hidden) and self.width >= self.height + self.right_icon_width + 10
         if self.show_right_icon:
-            self.text_width = (self.width - self.height - 0.8 * self.height - 2) if self.width - self.height - 0.8 * self.height - 2 > 0 else 0
+            self.text_width = (self.width - self.height - self.right_icon_width - 10) if self.width - self.height - self.right_icon_width - 10 > 0 else 0
         else:
             self.text_width = (self.width - self.height) if self.width - self.height > 0 else 0
 
@@ -104,13 +105,13 @@ class ChatItem(QtWidgets.QWidget):
 
         bodyLayout.addSpacerItem(QtWidgets.QSpacerItem(0, 0, hPolicy=QtWidgets.QSizePolicy.Policy.Expanding))
         bodyLayout.setSpacing(5)
-        bodyLayout.setContentsMargins(5, 5, 5, 5)
+        bodyLayout.setContentsMargins(10, 10, 10, 10)
         return bodyLayout
     
     def createIcon(self):
         icon = QtWidgets.QLabel()
         icon.setSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
-        icon.setFixedSize(self.height - 10, self.height - 10)
+        icon.setFixedSize(self.height - 20, self.height - 20)
         icon.setPixmap(QtGui.QPixmap(self.icon))
         icon.setScaledContents(True)
         icon.setAttribute(Qt.WA_TranslucentBackground)
@@ -121,7 +122,7 @@ class ChatItem(QtWidgets.QWidget):
         text.setText(self.show_text)
         text.setFont(self.font_)
         text.setStyleSheet("color: white;")
-        text.setFixedSize(self.text_width, self.height - 10)
+        text.setFixedSize(self.text_width, self.height - 20)
         text.setAttribute(Qt.WA_TranslucentBackground)
         return text
     
@@ -137,7 +138,7 @@ class ChatItem(QtWidgets.QWidget):
             p.setBrush(QtGui.QColor.fromRgb(51, 51, 51))
             self.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
-        p.drawRoundedRect(0, 0, self.width + 2, self.height + 2, 5, 5)
+        p.drawRoundedRect(0, 0, self.width + 2, self.height + 2, 10, 10)
 
         if not self.right_hidden:
             if self.above_right_icon:
