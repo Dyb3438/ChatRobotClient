@@ -15,7 +15,7 @@ class AppView(QtWidgets.QWidget):
         self.font_family = "SimSun"
         self.configuration = self.loadConfiguraton()
 
-        self.resize(1200, 800)
+        # self.resize(1200, 800)
         self.center()
         self.setMinimumHeight(500)
         # self.setFixedSize(self.width(), self.height())
@@ -32,8 +32,8 @@ class AppView(QtWidgets.QWidget):
     def center(self):
         screen = QtWidgets.QDesktopWidget().screenGeometry()
         # size = self.geometry()
-        self.resize(screen.width(), screen.height())
-        # self.move(int((screen.width() - size.width())/2), int((screen.height() - size.height())/2))
+        self.resize(screen.width(), screen.height() - 200)
+        self.move(0, 0)
         return
 
     def loadConfiguraton(self):
