@@ -16,6 +16,7 @@ class ChatPage(QtWidgets.QWidget):
 
         self.config = config
         self.proxy_sites = proxy_sites
+        self.font_family = font_family
 
         self.prepareForPaint()
         
