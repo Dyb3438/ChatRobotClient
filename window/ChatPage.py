@@ -77,6 +77,7 @@ class ChatPage(QtWidgets.QWidget):
         
         self.sendLE = QtWidgets.QLineEdit(self.chatSpace)
         self.sendLE.setFixedWidth(800)
+        self.sendLE.setFixedHeight(40)
         self.sendLE.setStyleSheet("color: white; background: rgb(55, 65, 81); padding: 5px")
         self.sendLE.setPlaceholderText("Send messages to AI")
         self.sendLE.setFont(QtGui.QFont(self.font_family, 20))

@@ -32,7 +32,7 @@ class AppView(QtWidgets.QWidget):
     def center(self):
         screen = QtWidgets.QDesktopWidget().screenGeometry()
         # size = self.geometry()
-        self.resize(screen.width(), screen.height() - 200)
+        self.resize(screen.width(), screen.height() - 150)
         self.move(0, 0)
         return
 
