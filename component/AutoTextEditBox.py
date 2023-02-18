@@ -45,7 +45,7 @@ class Editor(QTextEdit):
             self.show()
             height = int(self.document().size().height() + self.margins.top() + self.margins.bottom())
             width = int(self.document().idealWidth() + self.margins.left() + self.margins.right())
-            self.setFixedWidth(width + 2)
+            self.setFixedWidth(width + 1)
             self.setFixedHeight(height)
 
     def paintEvent(self, e: QPaintEvent) -> None:
