@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt
 
 from component import ScrollList, ChatItem
 from window import IntroductionPage, ChatPage
-
+import os
 
 class AppView(QtWidgets.QWidget):
 
@@ -75,7 +75,7 @@ class AppView(QtWidgets.QWidget):
         self.chatList.widget().layout().setAlignment(Qt.AlignmentFlag.AlignCenter)
         
         self.home_item = ChatItem.ChatItem(
-            icon='./icon/home.png',
+            icon=os.path.join(os.path.dirname(__file__), './icon/home.png'),
             string='Introduction',
             width=278,
             height=60,
@@ -86,7 +86,7 @@ class AppView(QtWidgets.QWidget):
         self.chatList.addWidget(self.home_item)
 
         self.add_item = ChatItem.ChatItem(
-            icon='./icon/add.png',
+            icon=os.path.join(os.path.dirname(__file__), './icon/add.png'),
             string='New Chat',
             width=278,
             height=60,
@@ -101,7 +101,7 @@ class AppView(QtWidgets.QWidget):
     
     def createAddItem(self):
         self.add_item = ChatItem.ChatItem(
-            icon='./icon/add.png',
+            icon=os.path.join(os.path.dirname(__file__), './icon/add.png'),
             string='New Chat',
             width=278,
             height=60,
@@ -117,14 +117,14 @@ class AppView(QtWidgets.QWidget):
         self.add_item = None
 
         chat_item = ChatItem.ChatItem(
-            icon='./icon/chat.png',
+            icon=os.path.join(os.path.dirname(__file__), './icon/chat.png'),
             string='Chat %d' % self.chat_id,
             chat_id=self.chat_id,
             width=278,
             height=60,
             font_size=20,
             right_hidden=False,
-            right_icon='./icon/delete.png',
+            right_icon=os.path.join(os.path.dirname(__file__), './icon/delete.png'),
             font_family=self.font_family
         )
         chat_item.MouseLClick.connect(partial(self.active_chat, chat_item))

@@ -3,6 +3,7 @@ from PyQt5.QtCore import Qt
 import sys
 from component import ScrollList, Icon, ChatPiece
 from thread import SendMessage
+import os
 
 class ChatPage(QtWidgets.QWidget):
     
@@ -86,7 +87,7 @@ class ChatPage(QtWidgets.QWidget):
         self.sendLE.returnPressed.connect(self.sendBtnEvent)
         layout.addWidget(self.sendLE)
         
-        icon = Icon.Icon('./icon/send.png', 30, 30)
+        icon = Icon.Icon(os.path.join(os.path.dirname(__file__), "../icon/send.png"), 30, 30)
         icon.MouseLClick.connect(self.sendBtnEvent)
         layout.addWidget(icon)
 
@@ -100,11 +101,12 @@ class ChatPage(QtWidgets.QWidget):
     
     def createChatPiece(self, content, type=1):
         if type == 0:
-            icon = './icon/AI.png'
+            icon = 'AI'
         elif type == 1:
-            icon = './icon/speak.png'
+            icon = 'speak'
         else:
-            icon = './icon/no_server.png'
+            icon = 'no_server'
+        icon = os.path.join(os.path.dirname(__file__), "../icon/%s.png" % icon)
         chatPiece = ChatPiece.ChatPiece(icon, content, type, font_family=self.font_family, icon_size=40, font_size=20)
         return chatPiece
     

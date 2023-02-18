@@ -3,6 +3,7 @@ from PyQt5.QtCore import Qt, pyqtSignal
 import sys
 from component import TextBox
 from functools import partial
+import os
 
 class IntroductionPage(QtWidgets.QWidget):
     startChatEvent = pyqtSignal(str)
@@ -74,7 +75,7 @@ class IntroductionPage(QtWidgets.QWidget):
         exampleICON = QtWidgets.QLabel()
         exampleICON.setSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         exampleICON.setFixedSize(30, 30)
-        exampleICON.setPixmap(QtGui.QPixmap("./icon/sun.png"))
+        exampleICON.setPixmap(QtGui.QPixmap(os.path.join(os.path.dirname(__file__), "../icon/sun.png")))
         exampleICON.setScaledContents(True)
         exampleICON_layout.addWidget(exampleICON)
         exampleICON_layout.addSpacerItem(QtWidgets.QSpacerItem(0, 0, hPolicy=QtWidgets.QSizePolicy.Policy.Expanding))
@@ -176,7 +177,7 @@ class IntroductionPage(QtWidgets.QWidget):
         capICON = QtWidgets.QLabel()
         capICON.setSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         capICON.setFixedSize(30, 30)
-        capICON.setPixmap(QtGui.QPixmap("./icon/light.png"))
+        capICON.setPixmap(QtGui.QPixmap(os.path.join(os.path.dirname(__file__), "../icon/light.png")))
         capICON.setScaledContents(True)
         capICON_layout.addWidget(capICON)
         capICON_layout.addSpacerItem(QtWidgets.QSpacerItem(0, 0, hPolicy=QtWidgets.QSizePolicy.Policy.Expanding))
@@ -267,7 +268,7 @@ class IntroductionPage(QtWidgets.QWidget):
         limitICON = QtWidgets.QLabel()
         limitICON.setSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         limitICON.setFixedSize(30, 30)
-        limitICON.setPixmap(QtGui.QPixmap("./icon/limit.png"))
+        limitICON.setPixmap(QtGui.QPixmap(os.path.join(os.path.dirname(__file__), "../icon/limit.png")))
         limitICON.setScaledContents(True)
         limitICON_layout.addWidget(limitICON)
         limitICON_layout.addSpacerItem(QtWidgets.QSpacerItem(0, 0, hPolicy=QtWidgets.QSizePolicy.Policy.Expanding))
