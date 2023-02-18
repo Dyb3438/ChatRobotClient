@@ -7,6 +7,7 @@ class ScrollList(QtWidgets.QScrollArea):
     def __init__(self, addBorder=True, **kwargs):
         super().__init__(**kwargs)
         self.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         if addBorder:
             listWidget = Widget()
         else:
