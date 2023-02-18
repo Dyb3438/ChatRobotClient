@@ -140,8 +140,9 @@ class ChatPage(QtWidgets.QWidget):
             self.config['QAs'] = self.config['QAs'][:-1]
         else:
             answer = ret['result']['choices'][0]['text']
-            chatPiece = self.createChatPiece(answer, type=0)
             self.config['QAs'].append(answer)
+            answer = answer.strip('\n')
+            chatPiece = self.createChatPiece(answer, type=0)
         self.chatSpace.addWidget(chatPiece)
 
         self.sendLE.setEnabled(True)
